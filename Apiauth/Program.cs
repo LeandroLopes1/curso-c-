@@ -70,7 +70,7 @@ var user = new User
 };
 
 
-redisClient.Set("user", user);
+redisClient.Set("user", user, TimeSpan.FromMinutes(1));
 
 var userRedis = redisClient.Get<User>("user");
 
@@ -78,4 +78,4 @@ var tokenRedis = redisClient.Get<string>("token");
 
 var token = TokenService.GenerateToken(user);
 
-redisClient.Set<string>("token", token); */
+redisClient.Set<string>("token", token, TimeSpan.FromMinutes(1)); */
