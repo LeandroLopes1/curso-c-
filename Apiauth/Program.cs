@@ -5,10 +5,17 @@ using Apiauth.Models;
 using Apiauth.Repositories;
 using ServiceStack.Redis;
 using ApiAuth.Services;
+using Apiauth.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+var connectionStringSQLServer = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDataContext>(opt => opt.UseSqlServer(connectionStringSQLServer));
+
+
 builder.Services.AddControllersWithViews();
 
 var key = Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e");
