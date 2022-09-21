@@ -7,8 +7,14 @@ namespace Apiauth.Data
     {
         public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
         {
+
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=.;Database=auth;User Id=sa;Password=Password321;");
+        }
         public DbSet<User> Users { get; set; }
+
     }
 }

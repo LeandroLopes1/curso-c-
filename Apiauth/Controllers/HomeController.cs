@@ -18,12 +18,12 @@ namespace Apiauth.Controllers
 
         [HttpGet]
         [Route("employee")]
-        [Authorize(Roles = "employee, manager")]
+        [Authorize(Roles = "admin, employee")]
         public string Employee() => "Funcionário";
 
         [HttpGet]
         [Route("manager")]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "admin")]
         public string Manager() => "Gerente";
         
     }

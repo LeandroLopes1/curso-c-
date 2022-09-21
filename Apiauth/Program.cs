@@ -60,7 +60,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// app.MapGet("ready/", () => new  {messagem  = "API foi iniciada", status = "OK"});
+
 app.Run();
+
+
 
 /* var host = "localhost:6379";
 var redis = new RedisClient(host);
